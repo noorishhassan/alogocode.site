@@ -3,7 +3,7 @@ export const EXPERIENCES = [
     date: "Apr 2024 - Present",
     jobTitle: "Software Engineer - Backend Web Developer",
     company: "Ehrhardt + Partner GmbH Co. KG, Boppard, Germany",
-    description: "Continuing my role from Pakistan in Germany. Currently working as a Werkstudent Backend web developer for a Transport Management System. • Designed, developed, and tested complex features to production-readiness. • Designed and led development on a small development team to integrate the mobile application with the optimization algorithm for the server of our client-facing application. • Optimized slow database queries, significantly increasing system performance."
+    description: "Currently working as a Werkstudent Backend web developer for a Transport Management System. • Designed, developed, and tested complex features to production-readiness. • Designed and led development on a small development team to integrate the mobile application with the optimization algorithm for the server of our client-facing application. • Optimized slow database queries, significantly increasing system performance."
   },
   {
     date: "Aug 2021 - Jan 2024",
