@@ -1,7 +1,8 @@
 ---
 import ProjectSection from "@/components/ProjectSection"
-import PostsSection from "@/components/PostsSection"
 import Timeline from "@/components/Timeline"
+import Education from "@/components/Education"
+import Skills from "@/components/Skills"
 import Avatar from "@/components/Avatar"
 import Layout from "@/layouts/Layout.astro"
 import { HiOutlineArrowDownCircle as DownIcon } from "react-icons/hi2"
@@ -38,35 +39,39 @@ import "@/styles/globals.css"
       <p
         class="max-w-56 text-center"
       >
-        Hello, I'm <strong>Alejandro</strong>, a fullstack developer from
-        Medellin
+        Hello, I'm <strong>Noorish</strong>, a backend developer from
+        Germany
       </p>
       <DownIcon className="text-2xl animate-bounce mt-10" />
     </section>
     <section class="flex flex-col w-full justify-center items-center gap-28">
-      <h2 class="font-bold">Projects</h2>
-      <ProjectSection client:load />
-    </section>
-    <section class="flex flex-col w-full justify-center items-center gap-28 mt-56">
       <h2 class="font-bold">Experience</h2>
       <Timeline />
     </section>
     <section class="flex flex-col w-full justify-center items-center gap-28 mt-56">
-      <h2 class="font-bold">Posts</h2>
-      <PostsSection client:load />
+      <h2 class="font-bold">Education</h2>
+      <Education client:load />
+    </section>
+    <section class="flex flex-col w-full justify-center items-center gap-28 mt-56">
+      <h2 class="font-bold">Skills</h2>
+      <Skills client:load />
+    </section>
+    <section class="flex flex-col w-full justify-center items-center gap-28 mt-56">
+      <h2 class="font-bold">Projects</h2>
+      <ProjectSection client:load />
     </section>
     <section class="flex flex-col w-full justify-center items-center gap-28 mt-56">
       <h2 class="font-bold">About me</h2>
       <div class="flex flex-col items-center gap-4 max-w-[500px]">
-        <Avatar src="/linkedin.png" alt="Alejandro Londoño" client:load/>
-        <p class="text-center">My name is <strong>Alejandro Londoño</strong>, I started programming in mid-2021 and I currently specialize in web development.</p>
+        <Avatar src="/linkedin.png" alt="Noorish Hassan" client:load/>
+        <p class="text-center">My name is <strong>Noorish Hassan</strong>, I started programming in mid-2017 and I currently specialize in backend development.</p>
         <p class="text-center">I am passionate about technology, learning new things, sharing knowledge and creating open source software.</p>
       </div>
     </section>
   </main>
   <footer>
     <p class="text-center text-sm text-slate-700 dark:text-slate-400 p-4 mt-28">
-      Made with &#x2665; by Alejandro Londoño | @slydragonn
+      Made with &#x2665; by Noorish Hassan | Template by <a href="https://github.com/slydragonn" target="_blank" class="underline">Alejandro Londoño</a>
     </p>
   </footer>
 </Layout>

@@ -9,18 +9,18 @@ interface ProjectLink {
 }
 
 interface ProjectCardProps {
-  image: string
   title: string
   description: string
   tags: string[]
+  date: string
   links: ProjectLink[]
 }
 
 const ProjectCard = ({
-  image,
   title,
   description,
   tags,
+  date,
   links,
 }: ProjectCardProps) => {
   const projectRef = useRef(null)
@@ -39,7 +39,6 @@ const ProjectCard = ({
             entry.target.classList.remove("animate-fade-in-up")
             entry.target.classList.add("animate-fade-out-down")
             entry.target.classList.add("opacity-0")
-
             setThreshold(0.5)
           }
         })
@@ -62,15 +61,13 @@ const ProjectCard = ({
   }, [threshold])
 
   return (
-    <article className="flex flex-col gap-8 w-full opacity-0" ref={projectRef}>
-      <img
-        src={image}
-        alt={title}
-        className="md:w-[800px] w-full rounded-3xl border border-slate-200 dark:border-slate-700"
-      />
-      <div className="flex flex-col justify-between gap-4">
-        <h3 className="font-bold text-2xl">{title}</h3>
-        <div className="flex flex-wrap gap-4">
+    <article className="flex flex-col gap-4 w-full opacity-0" ref={projectRef}>
+      <div className="flex flex-col justify-between gap-2">
+        <div className="flex flex-col gap-2">
+          <h3 className="font-bold text-2xl">{title}</h3>
+          <p className="text-sm text-gray-500">{date}</p>
+        </div>
+        <div className="flex flex-wrap gap-2">
           {tags.map((tag, index) => (
             <Badge
               key={index}
@@ -81,16 +78,18 @@ const ProjectCard = ({
           ))}
         </div>
         <p className="max-w-[800px] text-lg">{description}</p>
-        <div className="flex flex-wrap gap-4">
-          {links.map((link, index) => (
-            <a key={index} href={link.url} target="_blank" rel="noreferrer">
-              <Button variant="secondary">
-                <link.icon />
-                {link.name}
-              </Button>
-            </a>
-          ))}
-        </div>
+        {links.length > 0 && (
+          <div className="flex flex-wrap gap-4">
+            {links.map((link, index) => (
+              <a key={index} href={link.url} target="_blank" rel="noreferrer">
+                <Button variant="secondary">
+                  <link.icon />
+                  {link.name}
+                </Button>
+              </a>
+            ))}
+          </div>
+        )}
       </div>
     </article>
   )

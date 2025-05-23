@@ -1,6 +1,24 @@
 import { EXPERIENCES } from "@/content/experiences"
 
 const Timeline = () => {
+  const renderDescription = (description: string) => {
+    const parts = description.split('•').filter(Boolean);
+    if (parts.length === 1) {
+      return <p className="text-gray-600 mt-2">{description}</p>;
+    }
+    
+    return (
+      <div className="text-gray-600 mt-2">
+        <p>{parts[0].trim()}</p>
+        <ul className="list-disc ml-6 mt-2 space-y-1">
+          {parts.slice(1).map((point, index) => (
+            <li key={index}>{point.trim()}</li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
+
   return (
     <section className="flex flex-col max-w-[800px]">
       <div className="relative border-l-4 border-slate-700 ml-6">
@@ -12,7 +30,7 @@ const Timeline = () => {
             <h4 className="text-md text-gray-700 font-medium">
               {experience.company}
             </h4>
-            <p className="text-gray-600 mt-2">{experience.description}</p>
+            {renderDescription(experience.description)}
           </div>
         ))}
       </div>
