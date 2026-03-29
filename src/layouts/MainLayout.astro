@@ -53,30 +53,38 @@ const { title = "Noorish Hassan" } = Astro.props;
       <p>© 2026 Noorish Hassan</p>
     </footer>
 
-  <script is:inline>
+<script is:inline>
+  function applyTheme() {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme === "dark") {
       document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
     }
+  }
 
+  function setupThemeToggle() {
     const button = document.getElementById("theme-toggle");
+    if (!button) return;
 
-    function updateButton() {
-      if (!button) return;
-      button.textContent = document.documentElement.classList.contains("dark")
-        ? "Light mode"
-        : "Dark mode";
-    }
+    button.textContent = document.documentElement.classList.contains("dark")
+      ? "Light mode"
+      : "Dark mode";
 
-    updateButton();
-
-    button?.addEventListener("click", () => {
+    button.onclick = () => {
       document.documentElement.classList.toggle("dark");
 
       const isDark = document.documentElement.classList.contains("dark");
       localStorage.setItem("theme", isDark ? "dark" : "light");
-      updateButton();
-    });
-  </script>
+
+      button.textContent = isDark ? "Light mode" : "Dark mode";
+    };
+  }
+
+  applyTheme();
+  document.addEventListener("astro:after-swap", applyTheme);
+  document.addEventListener("astro:page-load", setupThemeToggle);
+  setupThemeToggle();
+</script>
   </body>
 </html>
