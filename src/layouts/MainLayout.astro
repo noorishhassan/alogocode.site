@@ -1,5 +1,7 @@
 ---
 import "../styles/global.css";
+import { ClientRouter } from "astro:transitions";
+
 const { title = "Noorish Hassan" } = Astro.props;
 ---
 
@@ -8,6 +10,7 @@ const { title = "Noorish Hassan" } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
+    <ClientRouter />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body>
@@ -25,7 +28,7 @@ const { title = "Noorish Hassan" } = Astro.props;
 
     <main class="container">
       <div class="site-layout">
-        <aside class="site-sidebar">
+        <aside class="site-sidebar" transition:persist>
           <div class="hero-image">
             <img src="/profile.jpg" alt="Portrait of Noorish Hassan" />
           </div>
